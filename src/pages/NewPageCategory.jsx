@@ -21,7 +21,7 @@ const NewPageCategory = () => {
 
   return (
     <div className="p-4">
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-16">
         {categoryProducts?.map((d, i) => (
           <div key={i} className="flex gap-4 flex-col">
             <div className="relative">
@@ -37,16 +37,16 @@ const NewPageCategory = () => {
                 </div>
               </Link>
             </div>
-            {/* <div className="flex gap-4">
+            <div className="flex gap-4">
               {d?.images.map((img, index) => (
                 <img
-                  className="w-52 aspect-square"
+                  className="w-52 aspect-square rounded-md"
                   key={index}
                   alt={img}
                   src={img}
                 />
               ))}
-            </div> */}
+            </div>
           </div>
         ))}
       </div>
