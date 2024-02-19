@@ -1,0 +1,48 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --blue: #1f6af6;
+  --gray: #f3f3f3e9;
+  --lightblue: #242490;
+  font-family: sans-serif;
+}
+
+.not-found {
+  background-image: url("./assets/space.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.not-found-text {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+#card-heart {
+  transition: 0.3s ease-in-out;
+}
+#card-heart:hover > a {
+  animation: heart 0.3s ease-in;
+}
+#card-heart:hover > button {
+  animation: heart 0.3s ease-in 0.1s;
+}
+
+@keyframes heart {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
