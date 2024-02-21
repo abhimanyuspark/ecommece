@@ -5,7 +5,7 @@ import { CategoryProducts, ProductsFilter } from "../components/index";
 const Category = () => {
   const { category } = useParams();
   return (
-    <div className="grid grid-cols-[18rem_1fr] p-4 gap-4">
+    <div className="grid sm:grid-cols-[18rem_1fr] grid-rows-[auto_1fr] grid-cols-1 p-4 gap-4">
       <div className="">
         <ProductsFilter category={category} />
       </div>

@@ -12,6 +12,7 @@ body {
   --blue: #1f6af6;
   --gray: #f3f3f3e9;
   --lightblue: #242490;
+  --swiper-pagination-color: white;
   font-family: sans-serif;
 }
 

@@ -7,6 +7,12 @@ import { RuppessConverter } from "../utility/index";
 
 const Carousel = ({ array, category }) => {
   const swiperRef = useRef();
+  const pagination = {
+    clickable: true,
+    renderBullet: (_, className) => {
+      return `<span class="${className} w-0 h-0 py-[2px] px-2 rounded-[10px]"></span>`;
+    },
+  };
 
   return (
     <div className="relative overflow-hidden">
@@ -14,9 +20,10 @@ const Carousel = ({ array, category }) => {
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
+        loop={true}
         modules={[Pagination, A11y, Autoplay]}
         autoplay
-        pagination={{ clickable: true }}
+        pagination={pagination}
       >
         <button
           className="absolute z-10 top-[35%] left-0 border border-slate-200 px-2 py-6 rounded-e-md hover:bg-white"

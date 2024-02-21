@@ -17,6 +17,7 @@ import { FaCartPlus, FaRupeeSign, FaCheck, FaTag } from "react-icons/fa";
 import { discount } from "../data/someData.json";
 import SuperCoin from "../assets/SuperCoin.webp";
 import ImageMagnifier from "../components/ImageMagnifier";
+import toast from "react-hot-toast";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -33,9 +34,10 @@ const ProductDetails = () => {
     setImage("");
   }, [dispatch, id]);
 
-  const addProductToCarts = (p) => {
+  const addProductToCarts = async (p) => {
     if (!added) {
-      dispatch(addCart(p));
+      await dispatch(addCart(p));
+      toast.success(p.title + " Added Successfully!");
       navigate("/carts");
     }
   };
@@ -66,8 +68,8 @@ const ProductDetails = () => {
 
     return (
       <div className="p-4 flex gap-10 flex-col">
-        <div className="grid grid-cols-[40%_1fr] p-2 gap-4 items-start sm:flex-row flex-col bg-white">
-          <div className="flex sticky top-2">
+        <div className="grid sm:grid-cols-[40%_1fr] grid-rows-[auto_auto] grid-cols-1  p-2 gap-4 items-start sm:flex-row flex-col bg-white">
+          <div className="flex sm:sticky top-2">
             {images?.length > 0 && (
               <div className="flex flex-col cursor-pointer">
                 {images?.map((img) => (
@@ -178,7 +180,7 @@ const ProductDetails = () => {
 
         <div className="flex gap-4 flex-col bg-white p-4">
           <h2 className="text-2xl">Similar products</h2>
-          <div className="grid gap-4 grid-cols-5">
+          <div className="grid gap-4 sm:grid-cols-4 grid-cols-2 lg:grid-cols-5">
             <CategoryProducts title={title} category={category}>
               <ProductCard2 />
             </CategoryProducts>

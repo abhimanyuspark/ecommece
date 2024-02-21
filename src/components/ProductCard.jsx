@@ -11,19 +11,19 @@ const ProductCard = ({ product }) => {
   return (
     <Link
       to={`/product/${product.id}`}
-      className="group/show w-full h-full p-8 flex gap-4 select-none border-b border-slate-200"
+      className="group/show w-full h-full p-8 flex gap-4 select-none border-b border-slate-200 sm:flex-row flex-col"
     >
       <img
         src={product?.thumbnail}
         loading="lazy"
         alt={product?.title}
-        className="w-52 aspect-square"
+        className="w-full aspect-square sm:w-52"
       />
       <div className="flex items-start gap-4">
         <div className="flex flex-col gap-2 items-start w-[30rem]">
           <div>
             <p className="text-slate-400 text-sm">Sponserd</p>
-            <p className="group-hover/show:text-[var(--blue)] truncate text-xl font-semibold">
+            <p className="group-hover/show:text-[var(--blue)] sm:w-full w-full text-xl font-semibold">
               {product.title}
             </p>
           </div>

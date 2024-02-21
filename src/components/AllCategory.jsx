@@ -6,7 +6,7 @@ const AllCategory = ({ products }) => {
   const { category } = useSelector((state) => state.category);
 
   return (
-    <div className="grid gap-4 grid-cols-4">
+    <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
       {category?.map((c) => {
         // Find the first product in the current category
         const firstProduct = products?.find(

@@ -69,7 +69,7 @@ const Carts = () => {
             carts.map((c) => (
               <div
                 key={c.id}
-                className="flex justify-between py-8 px-4 border-b border-slate-300"
+                className="group/show flex justify-between py-8 px-4 border-b border-slate-300"
               >
                 <div className="flex gap-6 h-auto">
                   <Link to={`/product/${c.id}`} className="w-[20%]">
@@ -84,7 +84,7 @@ const Carts = () => {
                   <div className="flex items-start justify-between flex-col w-[80%]">
                     <div>
                       <Link
-                        className="hover:underline sm:w-full w-8"
+                        className="group-hover/show:underline sm:w-full w-8"
                         to={`/product/${c.id}`}
                       >
                         {c.title}
@@ -196,7 +196,7 @@ const Carts = () => {
             </div>
           </div>
 
-          <button className="rounded-md border bg-[var(--blue)] text-white p-3">
+          <button className="border bg-[var(--blue)] text-white p-3">
             Checkout
           </button>
         </div>
