@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { FLConverter } from "../utility/index";
 import { NavLink } from "react-router-dom";
 import { A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -29,16 +28,16 @@ const Categories = ({ categories }) => {
         <FaAngleLeft />
       </button>
 
-      {categories?.slice(0, 20).map((c, i) => (
+      {categories?.map((c, i) => (
         <SwiperSlide
           key={i}
           className="flex items-center text-sm cursor-pointer hover:text-[var(--blue)]"
         >
           <NavLink
-            to={`/latest-products/${c}`}
+            to={`/latest-products/${c.slug}`}
             className={`active:text-[var(--blue)]`}
           >
-            {FLConverter(c)}
+            {c.name}
           </NavLink>
         </SwiperSlide>
       ))}

@@ -16,7 +16,7 @@ const Home = () => {
   return products?.length > 0 ? (
     <main className="flex flex-col gap-4 p-4">
       <section>
-        <Carousel array={products} category={category[state]} />
+        <Carousel array={products} category={category[state]?.slug} />
       </section>
 
       <section>

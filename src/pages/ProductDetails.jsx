@@ -16,22 +16,26 @@ import { addCart } from "../redux/features/productSlice";
 import { FaCartPlus, FaRupeeSign, FaCheck, FaTag } from "react-icons/fa";
 import { discount } from "../data/someData.json";
 import SuperCoin from "../assets/SuperCoin.webp";
-import ImageMagnifier from "../components/ImageMagnifier";
+// import ImageMagnifier from "../components/ImageMagnifier";
 import toast from "react-hot-toast";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { productDetails, loading, carts } = useSelector(
     (state) => state.products
   );
   const [image, setImage] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const added = carts?.some((cartItem) => cartItem?.id === productDetails?.id);
 
   useEffect(() => {
-    dispatch(getProductDetails(id));
-    setImage("");
+    const fetch = async () => {
+      const data = await dispatch(getProductDetails(id));
+      setImage(data?.payload ? data?.payload?.images[0] : null);
+    };
+    fetch();
   }, [dispatch, id]);
 
   const addProductToCarts = async (p) => {
@@ -92,13 +96,13 @@ const ProductDetails = () => {
             )}
 
             <div className="flex flex-col gap-2">
-              {/* <img
+              <img
                 className="w-[450px] aspect-square border border-slate-200"
                 alt={image || thumbnail}
                 loading="lazy"
                 src={image || thumbnail}
-              /> */}
-              <ImageMagnifier imageUrl={image || thumbnail} />
+              />
+              {/* <ImageMagnifier imageUrl={image} /> */}
               <div className="flex gap-4">
                 <button
                   onClick={() => {

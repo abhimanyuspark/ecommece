@@ -7,14 +7,16 @@ const AllCategory = ({ products }) => {
 
   return (
     <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
-      {category?.map((c) => {
+      {category?.map((c, index) => {
         // Find the first product in the current category
         const firstProduct = products?.find(
-          (product) => product.category === c
+          (product) => product.category === c?.slug
         );
         if (!firstProduct) return null; // If no product found in this category, skip rendering
 
-        return <CategoryCard key={c} product={firstProduct} category={c} />;
+        return (
+          <CategoryCard key={index} product={firstProduct} category={c?.slug} />
+        );
       })}
     </div>
   );

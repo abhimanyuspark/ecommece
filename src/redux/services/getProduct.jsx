@@ -4,7 +4,7 @@ import axios from "axios";
 export const getProducts = createAsyncThunk("getProducts", async () => {
   try {
     const response = await axios.get(
-      "https://dummyjson.com/products?limit=100"
+      "https://dummyjson.com/products?limit=200"
     );
     return response.data.products;
   } catch (error) {
