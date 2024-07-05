@@ -30,7 +30,7 @@ function App() {
       <Toaster />
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/ecommerce" element={<Home />} />
           <Route path="/category-products/:category" element={<Category />} />
           <Route
             path="/latest-products/:newCategory"
