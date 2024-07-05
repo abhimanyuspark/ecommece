@@ -1,1 +1,0 @@
-import{j as s}from"./index-DTZVXOfx.js";const e=()=>s.jsxs("div",{className:"flex flex-col items-center justify-center p-4",children:[s.jsx("img",{src:"https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg",className:"w-64 h-52",alt:"not-found"}),s.jsx("p",{className:"text-[var(--blue)] font-sans",children:"Empty Cart"})]});export{e as N};
