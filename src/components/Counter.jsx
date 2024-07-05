@@ -3,21 +3,20 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 
 const Counter = memo(({ initialValue, counterFn }) => {
   const [counter, setCounter] = useState(initialValue || 1);
-  const checkMinus = counter !== 1;
+  const checkMinus = counter === 1;
   const checkPlus = counter === 100;
 
   useEffect(() => {
-    if (checkMinus) {
-      counterFn && counterFn(counter);
-    }
+    counterFn && counterFn(counter);
   }, [counter]);
 
   return (
     <div className="flex items-center justify-between sm:gap-2 gap-1 border border-black w-auto px-2 py-1">
       <button
-        className={`hover:text-indigo-400 ${!checkMinus && "text-indigo-400"}`}
+        disabled={checkMinus}
+        className={`hover:text-indigo-400 ${checkMinus && "text-indigo-400"}`}
         onClick={() => {
-          checkMinus && setCounter((p) => p - 1);
+          setCounter((p) => p - 1);
         }}
       >
         <FaMinus size="12" />
@@ -33,14 +32,15 @@ const Counter = memo(({ initialValue, counterFn }) => {
             (!isNaN(value) && Number(value) >= 1 && Number(value) <= 100)
           ) {
             // If the value is empty or a non-negative number
-            setCounter(value === "" ? "" : Number(value));
+            setCounter(value === "" ? 1 : Number(value));
           }
         }}
       />
       <button
+        disabled={checkPlus}
         className={`hover:text-indigo-400 ${checkPlus && "text-indigo-400"}`}
         onClick={() => {
-          counter < 100 && setCounter((p) => p + 1);
+          setCounter((p) => p + 1);
         }}
       >
         <FaPlus size="12" />
