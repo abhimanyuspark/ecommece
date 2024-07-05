@@ -16,7 +16,7 @@ const Navbar = () => {
           className="w-12 h-12 rounded-full border-2 border-white"
         />
         <div className="flex flex-col items-center group/show">
-          <Link to="/" className="text-lg font-bold text-white">
+          <Link to="/ecommerce" className="text-lg font-bold text-white">
             Products
           </Link>
           <div

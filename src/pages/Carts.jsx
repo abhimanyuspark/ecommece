@@ -57,7 +57,7 @@ const Carts = () => {
       </div>
 
       <Link
-        to="/"
+        to="/ecommerce"
         className="flex gap-2 p-3 items-center font-semibold hover:text-[var(--blue)] border border-slate-200 bg-white"
       >
         <FaAngleLeft size={20} /> Continue Shopping
